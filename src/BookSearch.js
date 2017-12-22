@@ -11,13 +11,20 @@ class BookSearch extends Component{
         onSearchBook:PropTypes.func.isRequired
     };
     state={
-        query:''
+        query:'',
+        shelf:''
 
     };
     updateQuery=(query)=>{
         this.setState({query:query});
         if(query){
             this.props.onSearchBook(query)
+        }
+    };
+    updateShelf=(book,shelf)=>{
+        this.setState({shelf:shelf});
+        if(shelf){
+            this.props.onUpdateBook(book,shelf)
         }
     };
 
@@ -53,9 +60,9 @@ class BookSearch extends Component{
                             <li key={book.id}>
                                 <div className="book">
                                     <div className="book-top">
-                                        <div className="book-cover" style={{ backgroundImage: `url(${book.imageLinks.smallThumbnail})` }}></div>
+                                        <div className="book-cover" style={{  backgroundImage: `url(${book.imageLinks.smallThumbnail})`}} ></div>
                                         <div className="book-shelf-changer">
-                                            <select  >
+                                            <select  onClick={(event)=>this.updateShelf(book,event.target.value)}>
                                                 <option value="none" disabled>Move to...</option>
                                                 <option value="currentlyReading">Currently Reading</option>
                                                 <option value="wantToRead">Want to Read</option>

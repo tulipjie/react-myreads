@@ -18,14 +18,16 @@ componentDidMount(){
         })
 
 }
-//
-//
-//
-//   updateBooks(book,shelf){
-//       BooksAPI.update(book,shelf).then((book)=>{
-//           this.setState((books)=>books.concat(book))
-//       })
-//   }
+
+
+
+  updateBooks(book,shelf){
+      BooksAPI.update(book,shelf).then((book)=>{
+          this.setState(state=>({
+              listBooks:state.listBooks.concat(book)
+          }))
+      })
+  }
   searchBooks(query){
       BooksAPI.search(query).then((books)=>{
           this.setState({books})
@@ -38,11 +40,12 @@ componentDidMount(){
           <Route exact path="/" render={()=>(
               <BookList
                 books={this.state.listBooks}
-
+                onUpdateBook={(book,shelf)=>{this.updateBooks(book,shelf)}}
               />
           )}/>
           <Route path="/search" render={()=>(
               <BookSearch
+                  onUpdateBook={(book,shelf)=>{this.updateBooks(book,shelf)}}
                   onSearchBook={(query)=>{this.searchBooks(query)}}
                   books={this.state.books}
               />
