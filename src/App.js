@@ -7,11 +7,13 @@ import  BookList from './BookList';
 import  BookSearch from './BookSearch'
 
 class BooksApp extends React.Component {
-  state = {
-    books:[],
-      listBooks:[]
-
-  };
+    constructor(props){
+        super(props);
+        this.state={
+            books:[],
+            listBooks:[]
+        }
+    }
 componentDidMount(){
     //在dom加载完成后，获取书籍信息
         BooksAPI.getAll().then((books)=>{
