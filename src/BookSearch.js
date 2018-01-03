@@ -26,6 +26,7 @@ class BookSearch extends Component{
         if(shelf){
             this.props.onUpdateBook(book,shelf)
         }
+
     };
 
     render (){
@@ -62,7 +63,7 @@ class BookSearch extends Component{
                                     <div className="book-top">
                                         <div className="book-cover" style={{  backgroundImage: `url(${book.imageLinks.smallThumbnail})`}} ></div>
                                         <div className="book-shelf-changer">
-                                            <select  onClick={(event)=>this.updateShelf(book,event.target.value)} >
+                                            <select  onChange={(event)=>this.updateShelf(book,event.target.value)} value={book.shelf} >
                                                 <option value="none" disabled>Move to...</option>
                                                 <option value="currentlyReading">Currently Reading</option>
                                                 <option value="wantToRead">Want to Read</option>

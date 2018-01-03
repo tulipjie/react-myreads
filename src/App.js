@@ -35,7 +35,12 @@ componentDidMount(){
   //搜索功能
   searchBooks(query){
       BooksAPI.search(query).then((books)=>{
-          this.setState({books})
+          let results=books.map(book=>{
+              let bookOnShelf=this.state.listBooks.find(c=>c.id===book.id);
+              book.shelf=bookOnShelf?bookOnShelf.shelf:'none';
+              return book;
+          });
+          this.setState({books:results})
       })
   }
 

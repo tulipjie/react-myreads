@@ -42,7 +42,7 @@ class BookList extends Component{
                                                                 <div className="book-top">
                                                                     <div className="book-cover" style={{  backgroundImage: `url(${book.imageLinks.smallThumbnail})`}}></div>
                                                                     <div className="book-shelf-changer">
-                                                                        <select onClick={(event)=>this.updateShelf(book,event.target.value)} defaultValue="currentlyReading">
+                                                                        <select onChange={(event)=>this.updateShelf(book,event.target.value)} defaultValue="currentlyReading">
                                                                             <option value="none" disabled>Move to...</option>
                                                                             <option value="currentlyReading" >Currently Reading</option>
                                                                             <option value="wantToRead">Want to Read</option>
@@ -51,8 +51,8 @@ class BookList extends Component{
                                                                         </select>
                                                                     </div>
                                                                 </div>
-                                                                <div className="book-title">To Kill a Mockingbird</div>
-                                                                <div className="book-authors">Harper Lee</div>
+                                                                <div className="book-title">{book.title}</div>
+                                                                <div className="book-authors">{book.authors}</div>
                                                             </div>
                                                         </li>
                                                     )
@@ -72,7 +72,7 @@ class BookList extends Component{
                                                                 <div className="book-top">
                                                                     <div className="book-cover" style={{  backgroundImage: `url(${book.imageLinks.smallThumbnail})`}}></div>
                                                                     <div className="book-shelf-changer">
-                                                                        <select onClick={(event)=>this.updateShelf(book,event.target.value)} defaultValue="wantToRead">
+                                                                        <select onChange={(event)=>this.updateShelf(book,event.target.value)} defaultValue="wantToRead">
                                                                             <option value="none" disabled>Move to...</option>
                                                                             <option value="currentlyReading">Currently Reading</option>
                                                                             <option value="wantToRead" >Want to Read</option>
@@ -81,8 +81,8 @@ class BookList extends Component{
                                                                         </select>
                                                                     </div>
                                                                 </div>
-                                                                <div className="book-title">To Kill a Mockingbird</div>
-                                                                <div className="book-authors">Harper Lee</div>
+                                                                <div className="book-title">{book.title}</div>
+                                                                <div className="book-authors">{book.authors}</div>
                                                             </div>
                                                         </li>
                                                     )
@@ -102,7 +102,7 @@ class BookList extends Component{
                                                                 <div className="book-top">
                                                                     <div className="book-cover" style={{  backgroundImage: `url(${book.imageLinks.smallThumbnail})`}}></div>
                                                                     <div className="book-shelf-changer">
-                                                                        <select onClick={(event)=>this.updateShelf(book,event.target.value)} defaultValue="read">
+                                                                        <select onChange={(event)=>this.updateShelf(book,event.target.value)} defaultValue="read">
                                                                             <option value="none" disabled>Move to...</option>
                                                                             <option value="currentlyReading">Currently Reading</option>
                                                                             <option value="wantToRead">Want to Read</option>
@@ -111,8 +111,8 @@ class BookList extends Component{
                                                                         </select>
                                                                     </div>
                                                                 </div>
-                                                                <div className="book-title">To Kill a Mockingbird</div>
-                                                                <div className="book-authors">Harper Lee</div>
+                                                                <div className="book-title">{book.title}</div>
+                                                                <div className="book-authors">{book.authors}</div>
                                                             </div>
                                                         </li>
                                                     )
